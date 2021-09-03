@@ -2,6 +2,9 @@ node {
   stage('SCM') {
     checkout scm
   }
+    stage('Build') {
+     bat "mvn clean install" 
+  }
   stage('SonarQube Analysis') {
     //def mvn = tool 'Default Maven';
     withSonarQubeEnv() {
